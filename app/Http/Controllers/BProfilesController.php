@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Breeder;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BProfilesController extends Controller
 {
-    public function index(Breeder $breeder){
-        return view('bprofile.index', compact('breeder'));
+    public function index(User $user){
+        return view('bprofile.index', compact('user'));
     }
 
-    public function edit(Breeder $breeder){
-        return view('bprofile.edit', compact('breeder'));
+    public function edit(User $user){
+        return view('bprofile.edit', compact('user'));
     }
 
     public function update(){
@@ -22,11 +23,11 @@ class BProfilesController extends Controller
             'dog_type' => '',
             'introduction' => '',
         ]);
-         
-        auth()->user()->breeder()->bProfile->update(array_merge(
+        
+        auth()->user()->bProfile()->update(array_merge(
             $data,
         ));
 
-        return redirect('/bp/' . auth()->user()->breeder->id );
+        return redirect('/bp/' . auth()->user()->id );
     }
 }

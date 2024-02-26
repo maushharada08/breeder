@@ -15,6 +15,7 @@
     <script src="https://kit.fontawesome.com/08e90ee946.js" crossorigin="anonymous"></script>
 
     <!-- Scripts -->
+    <script type="text/javascript" src="js/my.js"></script>
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
@@ -77,5 +78,6 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{ asset('/js/my.js') }}"></script>
 </body>
 </html>

@@ -63,4 +63,8 @@ class User extends Authenticatable
     public function bProfile(){
         return $this->hasOne(BProfile::class);
     }
+
+    public function dogs(){
+        return $this->hasMany(Dog::class);
+    }
 }
